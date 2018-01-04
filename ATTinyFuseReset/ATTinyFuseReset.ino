@@ -1,3 +1,7 @@
+
+// 2018-01-04 Modyfied by Christian Nilsson for use with Pro Micro
+//   https://github.com/NiKiZe/AtTiny85HVP
+
 // Original ATTinyFuseReset import by Wayne Holder found at
 //   https://sites.google.com/site/wayneholder/attiny-fuse-reset
 
@@ -8,12 +12,12 @@
 // Fuse Calc:
 //   http://www.engbedded.com/fusecalc/
 
-#define  RST     13    // Output to level shifter for !RESET from transistor
-#define  SCI     12    // Target Clock Input
-#define  SDO     11    // Target Data Output
-#define  SII     10    // Target Instruction Input
-#define  SDI      9    // Target Data Input
-#define  VCC      8    // Target VCC
+#define  RST     20    // Output to level shifter for !RESET from FET
+#define  SCI     19    // Target Clock Input
+#define  SDO     15    // Target Data Output
+#define  SII     14    // Target Instruction Input
+#define  SDI     16    // Target Data Input
+#define  VCC     21    // Target VCC
 
 #define  HFUSE  0x747C
 #define  LFUSE  0x646C
@@ -36,12 +40,18 @@ void setup() {
   pinMode(SCI, OUTPUT);
   pinMode(SDO, OUTPUT);     // Configured as input when in programming mode
   digitalWrite(RST, HIGH);  // Level shifter is inverting, this shuts off 12V
-  Serial.begin(19200);
+  Serial.begin(115200);
 }
 
 void loop() {
    if (Serial.available() > 0) {
-    Serial.read();
+    Serial.println("Clearing buffer before reading");
+    // make sure we have emptied the buffer before doing anything
+    while (Serial.available() > 0)
+      Serial.read();
+
+    Serial.println("Setting pin states ...");
+
     pinMode(SDO, OUTPUT);     // Set SDO to output
     digitalWrite(SDI, LOW);
     digitalWrite(SII, LOW);
@@ -53,6 +63,8 @@ void loop() {
     delayMicroseconds(10);
     pinMode(SDO, INPUT);      // Set SDO to input
     delayMicroseconds(300);
+
+    Serial.println("Reading signature ...");
     unsigned int sig = readSignature();
     Serial.print("Signature is: ");
     Serial.println(sig, HEX);
@@ -65,6 +77,8 @@ void loop() {
       writeFuse(LFUSE, 0x62);
       writeFuse(HFUSE, 0xDF);
       writeFuse(EFUSE, 0xFF);
+    } else {
+      Serial.println("Unknown signature, no new fuse written");
     }
     readFuses();
     digitalWrite(SCI, LOW);
@@ -76,6 +90,7 @@ void loop() {
 byte shiftOut (byte val1, byte val2) {
   int inBits = 0;
   //Wait until SDO goes high
+  // WARNING this will loop forever if no input is given
   while (!digitalRead(SDO))
     ;
   unsigned int dout = (unsigned int) val1 << 2;
@@ -129,3 +144,4 @@ unsigned int readSignature () {
   }
   return sig;
 }
+
