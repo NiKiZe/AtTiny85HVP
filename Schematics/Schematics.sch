@@ -1,0 +1,337 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:switches
+LIBS:relays
+LIBS:motors
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:promicro
+LIBS:Schematics-cache
+EELAYER 25 0
+EELAYER END
+$Descr User 5512 5512
+encoding utf-8
+Sheet 1 1
+Title ""
+Date "2018-01-04"
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L ATTINY85-20SU U1
+U 1 1 5A4E4084
+P 2550 1150
+F 0 "U1" H 1400 1550 50  0000 C CNN
+F 1 "ATTINY85-20SU" H 3550 750 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 3500 1150 50  0001 C CIN
+F 3 "" H 2550 1150 50  0001 C CNN
+	1    2550 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR01
+U 1 1 5A4E4169
+P 4000 1500
+F 0 "#PWR01" H 4000 1250 50  0001 C CNN
+F 1 "GND" H 4000 1350 50  0000 C CNN
+F 2 "" H 4000 1500 50  0001 C CNN
+F 3 "" H 4000 1500 50  0001 C CNN
+	1    4000 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L AVR-ISP-6 CON1
+U 1 1 5A4E4187
+P 900 2050
+F 0 "CON1" H 900 2450 50  0000 L CNN
+F 1 "AVR-ISP-6" H 900 1750 50  0000 L CNN
+F 2 "" V 650 2100 50  0001 C CNN
+F 3 "" H -375 1500 50  0001 C CNN
+	1    900  2050
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR02
+U 1 1 5A4E4226
+P 800 1550
+F 0 "#PWR02" H 800 1400 50  0001 C CNN
+F 1 "+5V" H 800 1690 50  0000 C CNN
+F 2 "" H 800 1550 50  0001 C CNN
+F 3 "" H 800 1550 50  0001 C CNN
+	1    800  1550
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR03
+U 1 1 5A4E4237
+P 800 2450
+F 0 "#PWR03" H 800 2200 50  0001 C CNN
+F 1 "GND" H 800 2300 50  0000 C CNN
+F 2 "" H 800 2450 50  0001 C CNN
+F 3 "" H 800 2450 50  0001 C CNN
+	1    800  2450
+	1    0    0    -1  
+$EndComp
+Text Label 1300 1850 0    60   ~ 0
+MISO
+Text Label 1300 1950 0    60   ~ 0
+MOSI
+Text Label 1300 2050 0    60   ~ 0
+SCK
+Text Label 1300 2150 0    60   ~ 0
+RST
+Text Label 1200 1400 2    60   ~ 0
+RST
+Text Label 1200 900  2    60   ~ 0
+MOSI
+Text Label 1200 1000 2    60   ~ 0
+MISO
+Text Label 1200 1100 2    60   ~ 0
+SCK
+NoConn ~ 1200 1300
+Text GLabel 900  1200 0    60   Input ~ 0
+SCI
+Text GLabel 1650 2050 2    60   Output ~ 0
+SDO
+Text GLabel 1650 1950 2    60   Input ~ 0
+SDI
+Text GLabel 1650 1850 2    60   Input ~ 0
+SII
+$Comp
+L ProMicro U2
+U 1 1 5A4E461D
+P 3250 2950
+F 0 "U2" H 3250 3900 60  0000 C CNN
+F 1 "ProMicro" H 3250 2400 60  0000 C CNN
+F 2 "" H 3350 1900 60  0000 C CNN
+F 3 "" H 3350 1900 60  0000 C CNN
+	1    3250 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR04
+U 1 1 5A4E470C
+P 4200 2300
+F 0 "#PWR04" H 4200 2050 50  0001 C CNN
+F 1 "GND" H 4200 2150 50  0000 C CNN
+F 2 "" H 4200 2300 50  0001 C CNN
+F 3 "" H 4200 2300 50  0001 C CNN
+	1    4200 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L BSS138 Q1
+U 1 1 5A4E484B
+P 1650 3150
+F 0 "Q1" H 1850 3225 50  0000 L CNN
+F 1 "BSS138" H 1850 3150 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-23" H 1850 3075 50  0001 L CIN
+F 3 "" H 1650 3150 50  0001 L CNN
+	1    1650 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R4
+U 1 1 5A4E487F
+P 1450 2900
+F 0 "R4" V 1530 2900 50  0000 C CNN
+F 1 "10K" V 1450 2900 50  0000 C CNN
+F 2 "" V 1380 2900 50  0001 C CNN
+F 3 "" H 1450 2900 50  0001 C CNN
+	1    1450 2900
+	0    1    1    0   
+$EndComp
+$Comp
+L R R3
+U 1 1 5A4E48AB
+P 1450 3400
+F 0 "R3" V 1530 3400 50  0000 C CNN
+F 1 "10K" V 1450 3400 50  0000 C CNN
+F 2 "" V 1380 3400 50  0001 C CNN
+F 3 "" H 1450 3400 50  0001 C CNN
+	1    1450 3400
+	0    1    1    0   
+$EndComp
+Text Notes 1850 3400 0    60   ~ 0
+TX_LV
+Text Notes 1850 2900 0    60   ~ 0
+TX_HV
+Text Notes 1000 3400 0    60   ~ 0
+LV
+Text Notes 1000 2900 0    60   ~ 0
+HV
+$Comp
+L GND #PWR05
+U 1 1 5A4E4A47
+P 1750 3550
+F 0 "#PWR05" H 1750 3300 50  0001 C CNN
+F 1 "GND" H 1750 3400 50  0000 C CNN
+F 2 "" H 1750 3550 50  0001 C CNN
+F 3 "" H 1750 3550 50  0001 C CNN
+	1    1750 3550
+	1    0    0    -1  
+$EndComp
+Text GLabel 1650 2150 2    60   Input ~ 0
+RST_HV
+Text GLabel 1700 2700 0    60   Output ~ 0
+RST_HV
+Text GLabel 900  3400 0    60   Input ~ 0
+RST_LV
+$Comp
+L +12V #PWR06
+U 1 1 5A4E50F4
+P 1150 2750
+F 0 "#PWR06" H 1150 2600 50  0001 C CNN
+F 1 "+12V" H 1150 2890 50  0000 C CNN
+F 2 "" H 1150 2750 50  0001 C CNN
+F 3 "" H 1150 2750 50  0001 C CNN
+	1    1150 2750
+	1    0    0    -1  
+$EndComp
+Text GLabel 4150 2700 2    60   Output ~ 0
+RST_LV
+Text Notes 500  3600 0    60   ~ 0
+Sparkfun 1Ch Level Shifter
+NoConn ~ 2550 2200
+NoConn ~ 2550 2300
+NoConn ~ 2550 2400
+NoConn ~ 2550 2500
+NoConn ~ 2550 2600
+NoConn ~ 2550 2700
+NoConn ~ 2550 2800
+NoConn ~ 2550 2900
+NoConn ~ 2550 3000
+NoConn ~ 2550 3100
+NoConn ~ 2550 3200
+NoConn ~ 2550 3300
+NoConn ~ 3950 2200
+NoConn ~ 3950 3300
+Text GLabel 4150 3200 2    60   Output ~ 0
+SDI
+NoConn ~ 3950 2400
+Text GLabel 4150 3100 2    60   Output ~ 0
+SII
+Text GLabel 4150 3000 2    60   Input ~ 0
+SDO
+Text GLabel 4150 2800 2    60   Output ~ 0
+SCI
+Text GLabel 1650 1700 2    60   Input ~ 0
+PWR_PT5V
+Text GLabel 4150 2600 2    60   Output ~ 0
+PWR_PT5V
+NoConn ~ 3950 2900
+$Comp
+L +5V #PWR07
+U 1 1 5A4E7AC5
+P 4000 800
+F 0 "#PWR07" H 4000 650 50  0001 C CNN
+F 1 "+5V" H 4000 940 50  0000 C CNN
+F 2 "" H 4000 800 50  0001 C CNN
+F 3 "" H 4000 800 50  0001 C CNN
+	1    4000 800 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3900 1400 4000 1400
+Wire Wire Line
+	4000 1400 4000 1500
+Wire Wire Line
+	900  1200 1200 1200
+Wire Wire Line
+	1450 3150 1150 3150
+Wire Wire Line
+	1150 3150 1150 3400
+Wire Wire Line
+	900  3400 1300 3400
+Wire Wire Line
+	1600 2900 1750 2900
+Wire Wire Line
+	1750 2700 1750 2950
+Wire Wire Line
+	1600 3400 1750 3400
+Wire Wire Line
+	1750 3350 1750 3550
+Connection ~ 1750 3400
+Wire Wire Line
+	1750 2700 1700 2700
+Connection ~ 1750 2900
+Connection ~ 1150 3400
+Wire Wire Line
+	1150 2750 1150 2900
+Wire Wire Line
+	1150 2900 1300 2900
+Wire Notes Line
+	950  2550 2200 2550
+Wire Notes Line
+	950  2550 950  2800
+Wire Notes Line
+	950  2800 450  2800
+Wire Notes Line
+	2200 2550 2200 3800
+Wire Wire Line
+	3950 3200 4150 3200
+Wire Wire Line
+	3950 3100 4150 3100
+Wire Wire Line
+	3950 3000 4150 3000
+Wire Wire Line
+	1650 1950 1300 1950
+Wire Wire Line
+	1650 2150 1300 2150
+Wire Wire Line
+	1650 2050 1300 2050
+Wire Wire Line
+	1300 1850 1650 1850
+Wire Wire Line
+	3950 2600 4150 2600
+Wire Wire Line
+	4150 2700 3950 2700
+Wire Wire Line
+	3950 2800 4150 2800
+Wire Wire Line
+	800  1600 800  1550
+Wire Wire Line
+	1650 1700 1250 1700
+Wire Wire Line
+	1250 1700 1250 1550
+Wire Wire Line
+	1250 1550 800  1550
+Connection ~ 800  1550
+Wire Wire Line
+	3900 900  4000 900 
+Wire Wire Line
+	4000 900  4000 800 
+NoConn ~ 3950 2500
+Wire Wire Line
+	3950 2300 4200 2300
+$EndSCHEMATC
