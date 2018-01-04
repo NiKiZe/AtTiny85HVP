@@ -1,3 +1,6 @@
+// Original ATTinyFuseReset import by Wayne Holder found at
+//   https://sites.google.com/site/wayneholder/attiny-fuse-reset
+
 // AVR High-voltage Serial Fuse Reprogrammer
 // Adapted from code and design by Paul Willoughby 03/20/2010
 //   http://www.rickety.us/2010/03/arduino-avr-high-voltage-serial-programmer/
