@@ -10,6 +10,10 @@ You might be like me that you are lazy, don't have to much to work with and alre
 So what is the easiest way to do this without to many connections and I found that I had some
 [sparkfun level shifters](https://learn.sparkfun.com/tutorials/retired---using-the-logic-level-converter) laying around which could be used to get the 12V supply to reset.
 
+So from that We can build our FUSE fixer without having to build a full circuit, this is what I ended up with:
+![Just a bunch of cables and some boards](Schematics/HVP_JustWires_Circuit.jpg)
+I was already using the ISP header, so soldering on a extra wire to the ATTiny85, and conect it all togheter with jumper wires and it was done.
+
 ## Schematic
 
 Basic schema for using a Pro Micro (Sparkfun or similar clone) and external 12v with level shifter
